@@ -1,0 +1,19 @@
+{
+  "name": "discord.js-ext",
+  "version": "1.0.0",
+  "description": "Extensions for Discord.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "extentions",
+    "discord-js",
+    "javascript"
+  ],
+  "author": "Sworder71",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
