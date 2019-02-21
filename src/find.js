@@ -24,7 +24,7 @@ exports.findRole = (message, search) => {
  * Finds a channel
  * @param {Message} message promise of Discord.JS
  * @param {string} search The query
- * @returns {TextChannel|TextChannel|CategoryChannel}
+ * @returns {TextChannel|VoiceChannel|CategoryChannel}
  */
 exports.findChannel = (message, search, type) => {
     let typeArray = ['text', 'voice', 'category'];
