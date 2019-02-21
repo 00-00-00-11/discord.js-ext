@@ -7,7 +7,7 @@
 exports.createMessage = (client, options) => {
     if (options !== undefined) {
         if (typeof options === 'object') {
-            if(options.to && !isNaN(options.to)) {
+            if (options.to && !isNaN(options.to)) {
                 if (!options.content || typeof options.content !== 'string') { 
                     options.content = null;
                 }
