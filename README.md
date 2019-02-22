@@ -23,7 +23,7 @@ sudo apt-get install nodejs
 
    </li>
    <li>Node.js (Windows):
-  <p>You can download Node.js here: <a href="https://nodejs.org/en/download/">Windows</a></p>
+  <p>You can download Node.js here: <a href="https://nodejs.org/en/download/">nodejs.org</a></p>
    </li>
     <li> Discord.js:
       
