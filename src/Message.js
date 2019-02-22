@@ -19,7 +19,7 @@ class Message {
      * @param {object} options Send options
      * @returns {Promise<Message>}
      */
-    create(options) {
+    create(options = {}) {
         if (options !== undefined) {
             if (typeof options === 'object') {
                 if (options.to && !isNaN(options.to)) {
