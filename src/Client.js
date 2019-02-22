@@ -48,7 +48,7 @@ class Client {
                     status: type
                 });
             } else {
-                return console.error('[DISCORD.JS-EXT] You must include a valid type. (online | idle | dnd | offline)');
+                throw new Error('[DISCORD.JS-EXT] You must include a valid type. (online | idle | dnd | offline)');
             }
         }
     }
