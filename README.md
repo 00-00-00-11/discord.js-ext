@@ -37,7 +37,7 @@ npm install --save discord.js
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-const { Client } = require('../index');
+const { Client } = require('discord.js-ext');
 bot.ext = new Client(bot);
 
 bot.on('ready', () => {
