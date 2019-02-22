@@ -1,10 +1,14 @@
 {
   "name": "discord.js-ext",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extensions for Discord.js",
   "main": "index.js",
   "scripts": {
     "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sworder71/discord.js-ext.git"
   },
   "keywords": [
     "extentions",
@@ -13,6 +17,10 @@
   ],
   "author": "Sworder71",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Sworder71/discord.js-ext/issues"
+  },
+  "homepage": "https://github.com/Sworder71/discord.js-ext#readme",
   "dependencies": {
     "discord.js": "^11.4.2"
   }
