@@ -12,11 +12,11 @@ class Client {
         if (!client) {
             throw new Error('[DISCORD.JS-EXT] No client found !');
         }
-
+        // The bot client
         this.client = client;
-
+        // Imports the utils functions
         this.utils = new Utils(client);
-
+        // Imports the message functions
         this.message = new Message(client);
     }
 
