@@ -1,5 +1,5 @@
 module.exports = { 
-    utils: require('./src/find'),
-    bot: require('./src/client'),
-    ...require('./src/message')
+    Utils: require('./src/Utils'),
+    Client: require('./src/Client'),
+    Message: require('./src/Message')
 };
