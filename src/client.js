@@ -21,9 +21,9 @@ exports.setGame = async(client, name) => {
  * @returns {Promise<ClientUser>}
  */
 exports.setStatus = async(client, type) => {
-    let types = ['online', 'idle', 'dnd', 'offline'];
+    let typeArray = ['online', 'idle', 'dnd', 'offline'];
     if (type && typeof type === 'string') {
-        if (types.includes(type)) {
+        if (typeArray.includes(type)) {
             await client.user.setPresence({
                 status: type
             });
