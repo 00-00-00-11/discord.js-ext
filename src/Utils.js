@@ -45,10 +45,10 @@ class Utils {
         let typeArray = ['text', 'voice', 'category'];
         search = search.toLowerCase();
         if (!type || type === null) {
-            return console.error('[DISCORD.JS-EXT] You must include a valid type. (text | voice | category)');
+            throw new Error('[DISCORD.JS-EXT] You must include a valid type. (text | voice | category)');
         }
         else if (!typeArray.includes(type)) {
-            return console.error('[DISCORD.JS-EXT] You must include a valid type. (text | voice | category)'); 
+            throw new Error('[DISCORD.JS-EXT] You must include a valid type. (text | voice | category)'); 
         }
         return message.guild.channels.filter((c) => c.type === type).find((c) => c.name.toLowerCase() === search || c.id === search);
     }
