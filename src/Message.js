@@ -24,7 +24,7 @@ class Message {
             if (typeof options === 'object') {
                 if (options.to && !isNaN(options.to)) {
                     if(!this.client.channels.get(options.to)) {
-                        return console.error('[DISCORD.JS-EXT] The bot cannot send a message in this channel.');
+                        throw new Error('[DISCORD.JS-EXT] The bot cannot send a message in this channel.');
                     }
                     if (!options.content || typeof options.content !== 'string') { 
                         options.content = null;
@@ -36,7 +36,7 @@ class Message {
                         options.attachFile = null;
                     }
                     if (options.content === null && options.attachEmbed === null && options.attachFile === null) {
-                        return console.error('[DISCORD.JS-EXT] You must include a content|embed|file to send a message.');
+                        throw new Error('[DISCORD.JS-EXT] You must include a content|embed|file to send a message.');
                     } else {
                         let additional = null;
                         if (options.attachFile !== null && options.embed !== null) {
@@ -51,7 +51,7 @@ class Message {
                         return this.client.channels.get(options.to).send(options.content, additional)
                         .catch((err) => {
                             if (err) {
-                                return console.error(err);
+                                throw new Error(err);
                             }
                         });
                     }
