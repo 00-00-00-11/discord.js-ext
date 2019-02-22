@@ -1,15 +1,17 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-client.ext = require('../index');
+const bot = new Discord.Client();
 
-client.on('ready', () => {
-    client.ext.bot.setGame(client, 'I\'m online !');
-    console.log(`Logged in as ${client.user.tag}!`);
+const { Client } = require('../index');
+bot.ext = new Client(bot);
+
+bot.on('ready', () => {
+    bot.ext.setGame('I\'m online !');
+    console.log(`Logged in as ${bot.user.tag}!`);
 });
 
-client.on('message', msg => {
+bot.on('message', msg => {
     if (msg.content === 'ping') {
-        client.ext.createMessage(client, {
+        bot.ext.message.create({
             to: msg.channel.id,
             content: 'Pong!'
         });
