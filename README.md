@@ -15,12 +15,15 @@
 <p>
   <strong>Discord.js@11.4.2</strong> and <strong>Node.js@8.x</strong> is necessary to use <strong>Discord.JS-EXT</strong>, to install:
   <ul>
-   <li>Node.js:
+   <li>Node.js (Linux):
 
 ```
 sudo apt-get install nodejs
 ```
 
+   </li>
+   <li>Node.js (Windows):
+  <p>You can download Node.js here: <a href="https://nodejs.org/en/download/">Windows</a></p>
    </li>
     <li> Discord.js:
       
