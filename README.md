@@ -15,18 +15,18 @@
 <p>
   <strong>Discord.js@11.4.2</strong> and <strong>Node.js@8.x</strong> is necessary to use <strong>Discord.JS-EXT</strong>, to install:
   <ul>
-    <li> Discord.js:
-      
-```
-npm install --save discord.js
-```
-   </li>
    <li>Node.js:
 
 ```
 sudo apt-get install nodejs
 ```
 
+   </li>
+    <li> Discord.js:
+      
+```
+npm install --save discord.js
+```
    </li>
   </ul>
 </p>
