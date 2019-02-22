@@ -10,7 +10,7 @@
   The first version was created by <strong>Sworder</strong> at <strong>21/02/2019</strong>.
 </p>
 
-<h2>Installation</h1>
+<h2>Installation</h2>
 
 <p>
   <strong>Discord.js@11.4.2</strong> and <strong>Node.js@8.x</strong> is necessary to use <strong>Discord.JS-EXT</strong>, to install:
@@ -34,7 +34,7 @@ npm install --save discord.js
   </ul>
 </p>
 
-<h2>Example usage</h1>
+<h2>Example usage</h2>
 
 ```js
 const Discord = require('discord.js');
