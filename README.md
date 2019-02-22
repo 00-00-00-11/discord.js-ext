@@ -5,9 +5,9 @@
 <h2>About</h2>
 
 <p>
-  <strong>Discord.JS-EXT</strong> was created to simplify the wide use of discord.js for beginners.
+  <strong>Discord.JS-EXT</strong> was created to simplify the wide use of <strong>Discord.js</strong> for beginners.
   
-  The first version was created by Sworder at 21/02/2019.
+  The first version was created by <strong>Sworder</strong> at <strong>21/02/2019</strong>.
 </p>
 
 <h2>Installation</h1>
