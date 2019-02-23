@@ -1,5 +1,6 @@
 module.exports = { 
-    Utils: require('./src/Utils'),
     Client: require('./src/Client'),
-    Message: require('./src/Message')
+    Message: require('./src/Message'),
+    PlayerManager: require('./src/PlayerManager'),
+    Utils: require('./src/Utils')
 };
