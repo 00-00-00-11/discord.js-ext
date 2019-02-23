@@ -15,7 +15,7 @@ class PlayerManager {
 
     /**
      * Join a voice channel
-     * @param {object} id The voice channel ID
+     * @param {string} id The voice channel ID
      * @returns {Promise<VoiceConnection>}
      */
     async join(id) {
@@ -38,7 +38,7 @@ class PlayerManager {
 
     /**
      * Leave a voice channel
-     * @param {object} id The voice channel ID
+     * @param {string} id The voice channel ID
      * @returns {void}
      */
     async leave(id) {
