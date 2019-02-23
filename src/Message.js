@@ -15,7 +15,6 @@ class Message {
 
     /**
      * Sends a message from the client
-     * @param {Client} client The bot client
      * @param {object} options Send options
      * @returns {Promise<Message>}
      */
