@@ -39,9 +39,10 @@ class Utils {
      * Finds a channel
      * @param {Message} message promise of Discord.JS
      * @param {string} search The query
+     * @param {string} type The type of the channel
      * @returns {TextChannel|VoiceChannel|CategoryChannel}
      */
-    findChannel(message, search) {
+    findChannel(message, search, type) {
         let typeArray = ['text', 'voice', 'category'];
         search = search.toLowerCase();
         if (!type || type === null) {
@@ -51,6 +52,27 @@ class Utils {
             throw new Error('[DISCORD.JS-EXT] You must include a valid type. (text | voice | category)'); 
         }
         return message.guild.channels.filter((c) => c.type === type).find((c) => c.name.toLowerCase() === search || c.id === search);
+    }
+    
+    /**
+     * Finds an emoji
+     * @param {Message} message promise of Discord.JS
+     * @param {string} search The query
+     * @returns {Emoji}
+     */
+    findEmoji(message, search) {
+        if (typeof search === 'string') {
+            if (isNaN(search)) {
+                search = search
+                .toLowerCase()
+                .replace(/[^a-zA-Z]/g, '');
+            }
+        } else if (typeof search === 'number') {
+            search = search;
+        } else {
+            throw new Error('[DISCORD.JS-EXT] You must include a string or a number.'); 
+        }
+        return message.guild.emojis.find((e) => e.name.toLowerCase() === search || e.id === search);
     }
 };
 
