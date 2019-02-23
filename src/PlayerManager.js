@@ -15,7 +15,6 @@ class PlayerManager {
 
     /**
      * Join a voice channel
-     * @param {Client} client The bot client
      * @param {object} id The voice channel ID
      * @returns {Promise<VoiceConnection>}
      */
@@ -39,7 +38,6 @@ class PlayerManager {
 
     /**
      * Leave a voice channel
-     * @param {Client} client The bot client
      * @param {object} id The voice channel ID
      * @returns {void}
      */
