@@ -18,4 +18,4 @@ bot.on('message', msg => {
     }
 });
 
-client.login('token');
+bot.login('token');
