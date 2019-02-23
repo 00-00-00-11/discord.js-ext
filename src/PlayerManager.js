@@ -18,7 +18,7 @@ class PlayerManager {
      * @param {object} id The voice channel ID
      * @returns {Promise<VoiceConnection>}
      */
-    join(id) {
+    async join(id) {
         if (id && typeof id === 'string') {
             if (this.client.channels.get(id)) {
                 if (this.client.channels.get(id).type === 'voice') {
@@ -41,11 +41,11 @@ class PlayerManager {
      * @param {object} id The voice channel ID
      * @returns {void}
      */
-    leave(id) {
+    async leave(id) {
         if (id && typeof id === 'string') {
             let filterVc = this.client.voiceConnections.filter((v) => v.channel.id === id);
             if (filterVc.size > 0) {
-                filterVc.first().disconnect();
+                await filterVc.first().disconnect();
             } else {
                 throw new Error('[DISCORD.JS-EXT] The bot cannot leave this channel because the bot don\'t see it.');
             }
