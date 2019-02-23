@@ -61,17 +61,7 @@ class Utils {
      * @returns {Emoji}
      */
     findEmoji(message, search) {
-        if (typeof search === 'string') {
-            if (isNaN(search)) {
-                search = search
-                .toLowerCase()
-                .replace(/[^a-zA-Z]/g, '');
-            }
-        } else if (typeof search === 'number') {
-            search = search;
-        } else {
-            throw new Error('[DISCORD.JS-EXT] You must include a string or a number.'); 
-        }
+        search = search.toLowerCase();
         return message.guild.emojis.find((e) => e.name.toLowerCase() === search || e.id === search);
     }
 };
