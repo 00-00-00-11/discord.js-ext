@@ -9,7 +9,7 @@ class PlayerManager {
         if (!client) {
             throw new Error('[DISCORD.JS-EXT] No client found !');
         }
-        
+        // The bot client
         this.client = client;
     }
 
