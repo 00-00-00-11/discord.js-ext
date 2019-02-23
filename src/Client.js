@@ -1,7 +1,8 @@
 'use strict';
 
-let Utils = require('./Utils');
 let Message = require('./Message');
+let PlayerManager = require('./PlayerManager');
+let Utils = require('./Utils');
 
 class Client {
     /**
@@ -14,10 +15,12 @@ class Client {
         }
         // The bot client
         this.client = client;
-        // Imports the utils functions
-        this.utils = new Utils(client);
         // Imports the message functions
         this.message = new Message(client);
+        // Imports the playermanager functions
+        this.playermanager = new PlayerManager(client);
+        // Imports the utils functions
+        this.utils = new Utils(client);
     }
 
     /**
