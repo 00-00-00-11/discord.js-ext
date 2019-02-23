@@ -56,7 +56,7 @@ class Client {
     /**
      * Leave a guild
      * @param {string} id The guild ID
-     * @returns { Promise<Guild>}
+     * @returns {Promise<Guild>}
      */
     async leaveGuild(id) {
         if (id && typeof id === 'string') {
