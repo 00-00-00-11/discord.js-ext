@@ -52,6 +52,21 @@ class Client {
             }
         }
     }
+
+    /**
+     * Leave a guild
+     * @param {string} id The guild ID
+     * @returns { Promise<Guild>}
+     */
+    async leaveGuild(id) {
+        if (id && typeof id === 'string') {
+            if (this.client.guilds.get(id)) {
+                await this.client.guilds.get(id).leave();
+            } else {
+                throw new Error('[DISCORD.JS-EXT] You cannot leave this guild because the bot isn\'t there.');
+            }
+        }
+    }
 };
 
 module.exports = Client;
