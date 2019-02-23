@@ -1,6 +1,6 @@
 {
   "name": "discord.js-ext",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Extensions for Discord.js",
   "main": "index.js",
   "scripts": {
