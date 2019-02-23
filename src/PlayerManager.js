@@ -68,14 +68,14 @@ class PlayerManager {
             let vc = this.client.channels.get(id);
             if (filterVc.size > 0) {
                 if (url && typeof url === 'string') {
-                    filterVc.first().playOpusStream(await ytdl(url));
+                    filterVc.first().playOpusStream(await ytdl(url), { volume: 0.1 });
                 } else {
                     throw new Error('[DISCORD.JS-EXT] You must include a valid URL. (string only)');
                 }
             } else if (vc) {
                 vc.join()
                 .then(async(connection) => {
-                    connection.playOpusStream(await ytdl(url));
+                    connection.playOpusStream(await ytdl(url), { volume: 0.1 });
                 })
                 .catch((err) => {
                     if (err) throw new Error(`[DISCORD.JS-EXT] The bot cannot join this channel, an error has occured:\n\n${err.message}`);
