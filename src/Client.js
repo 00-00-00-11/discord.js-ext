@@ -28,7 +28,7 @@ class Client {
      * @param {string} name The name of the game
      * @returns {Promise<ClientUser>}
      */
-    async setGame(name) {
+    setGame(name) {
         return new Promise((resolve, reject) => {
             if (name && typeof name === 'string') {
                 this.client.user.setPresence({
@@ -49,7 +49,7 @@ class Client {
      * @param {string} type The status
      * @returns {Promise<ClientUser>}
      */
-    async setStatus(type) {
+    setStatus(type) {
         return new Promise((resolve, reject) => {
             let typeArray = ['online', 'idle', 'dnd', 'offline'];
             if (type && typeof type === 'string') {
@@ -73,7 +73,7 @@ class Client {
      * @param {string} id The guild ID
      * @returns {Promise<string>}
      */
-    async leaveGuild(id) {
+    leaveGuild(id) {
         return new Promise(async(resolve, reject) => {
             if (id && typeof id === 'string') {
                 if (this.client.guilds.get(id)) {
