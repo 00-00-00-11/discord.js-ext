@@ -48,7 +48,7 @@ class Message {
                             else if (options.attachFile !== null) {
                                 additional = options.attachFile;
                             }
-                            this.client.channels.get(options.to).send(options.content, additional)
+                            this.client.channels.get(options.to).send((options.content === null ? '' : options.content), additional)
                             .then((message) => {
                                 resolve(message);
                             })
