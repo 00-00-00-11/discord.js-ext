@@ -52,7 +52,7 @@ class Utils {
             else if (!typeArray.includes(type)) {
                 reject(new Error('[DISCORD.JS-EXT] You must include a valid type. (text | voice | category)')); 
             }
-                resolve(message.guild.channels.filter((c) => c.type === type).find((c) => c.name.toLowerCase() === search || c.id === search));
+            resolve(message.guild.channels.filter((c) => c.type === type).find((c) => c.name.toLowerCase() === search || c.id === search));
         });
     }
     
