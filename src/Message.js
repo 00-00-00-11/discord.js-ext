@@ -49,8 +49,8 @@ class Message {
                                 additional = options.attachFile;
                             }
                             this.client.channels.get(options.to).send(options.content, additional)
-                            .then((m) => {
-                                resolve(m);
+                            .then((message) => {
+                                resolve(message);
                             })
                             .catch(reject);
                         }
