@@ -29,13 +29,19 @@ class Client {
      * @returns {Promise<ClientUser>}
      */
     async setGame(name) {
-        if (name && typeof name === 'string') {
-            await this.client.user.setPresence({
-                game: {
-                    name
-                }
-            });
-        }
+        return new Promise((resolve, reject) => {
+            if (name && typeof name === 'string') {
+                this.client.user.setPresence({
+                    game: {
+                        name
+                    }
+                })
+                .then(() => {
+                    resolve(this.client.user);
+                })
+                .catch(reject);
+            }
+        });
     }
 
     /**
@@ -44,16 +50,22 @@ class Client {
      * @returns {Promise<ClientUser>}
      */
     async setStatus(type) {
-        let typeArray = ['online', 'idle', 'dnd', 'offline'];
-        if (type && typeof type === 'string') {
-            if (typeArray.includes(type)) {
-                await this.client.user.setPresence({
-                    status: type
-                });
-            } else {
-                throw new Error('[DISCORD.JS-EXT] You must include a valid type. (online | idle | dnd | offline)');
+        return new Promise((resolve, reject) => {
+            let typeArray = ['online', 'idle', 'dnd', 'offline'];
+            if (type && typeof type === 'string') {
+                if (typeArray.includes(type)) {
+                    this.client.user.setPresence({
+                        status: type
+                    })
+                    .then(() => {
+                        resolve(this.client.user);
+                    })
+                    .catch(reject);
+                } else {
+                    throw new Error('[DISCORD.JS-EXT] You must include a valid type. (online | idle | dnd | offline)');
+                }
             }
-        }
+        });
     }
 
     /**
@@ -62,13 +74,19 @@ class Client {
      * @returns {Promise<Guild>}
      */
     async leaveGuild(id) {
-        if (id && typeof id === 'string') {
-            if (this.client.guilds.get(id)) {
-                await this.client.guilds.get(id).leave();
-            } else {
-                throw new Error('[DISCORD.JS-EXT] You cannot leave this guild because the bot isn\'t there.');
+        return new Promise((resolve, reject) => {
+            if (id && typeof id === 'string') {
+                if (this.client.guilds.get(id)) {
+                    this.client.guilds.get(id).leave()
+                    .then((guild) => {
+                        resolve(guild);
+                    })
+                    .catch(reject);
+                } else {
+                    reject(new Error('[DISCORD.JS-EXT] You cannot leave this guild because the bot isn\'t there.'));
+                }
             }
-        }
+        });
     }
 };
 
