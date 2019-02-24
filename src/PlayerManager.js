@@ -52,10 +52,10 @@ class PlayerManager {
                 let vc = this.client.channels.get(id);
                 if (filterVc.size > 0) {
                     await filterVc.first().disconnect();
-                    await resolve("Disconnected!");
+                    await resolve('Disconnected!');
                 } else if (vc && vc.type === 'voice') {
                     await vc.leave();
-                    await resolve("Disconnected!");
+                    await resolve('Disconnected!');
                 } else {
                     reject(new Error('[DISCORD.JS-EXT] The bot cannot leave this channel because the bot don\'t see it.'));
                 }
