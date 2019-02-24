@@ -20,7 +20,7 @@ class PlayerManager {
      * @param {string} id The voice channel ID
      * @returns {Promise<VoiceConnection>}
      */
-    async join(id) {
+    join(id) {
         return new Promise((resolve, reject) => {
             if (id && typeof id === 'string') {
                 if (this.client.channels.get(id)) {
@@ -45,7 +45,7 @@ class PlayerManager {
      * @param {string} id The voice channel ID
      * @returns {Promise<string>}
      */
-    async leave(id) {
+    leave(id) {
         return new Promise((resolve, reject) => {
             if (id && typeof id === 'string') {
                 let filterVc = this.client.voiceConnections.filter((v) => v.channel.id === id);
@@ -77,7 +77,7 @@ class PlayerManager {
      * @param {string} url The youtube url
      * @returns {Promise<VoiceConnection>}
      */
-    async playYouTube(id, url) {
+    playYouTube(id, url) {
         return new Promise(async(resolve, reject) => {
             if (id && typeof id === 'string') {
                 let filterVc = this.client.voiceConnections.filter((v) => v.channel.id === id);
