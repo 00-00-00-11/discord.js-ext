@@ -74,11 +74,15 @@ class Client {
      * @returns {Promise<string>}
      */
     leaveGuild(id) {
-        return new Promise(async(resolve, reject) => {
+        return new Promise((resolve, reject) => {
             if (id && typeof id === 'string') {
                 if (this.client.guilds.get(id)) {
-                    await this.client.guilds.get(id).leave();
-                    await resolve('Leaved!');
+                    try {
+                        this.client.guilds.get(id).leave();
+                    } catch Exep {
+                        return reject(new Error('[DISCORD.JS-EXT] An Error has occured.'));
+                    }
+                    resolve('Leaved!');
                 } else {
                     reject(new Error('[DISCORD.JS-EXT] You cannot leave this guild because the bot isn\'t there.'));
                 }
