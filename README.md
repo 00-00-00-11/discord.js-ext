@@ -2,10 +2,10 @@
   <img src="https://cdn.discordapp.com/attachments/548493810494210108/548493842328846351/djsext.png" alt="discord.js-ext" width="200px">
   <br>
   <br>
+  <a href="https://nodei.co/npm/discord.js-ext/"><img src="https://nodei.co/npm/discord.js-ext.png?downloads=true&stars=true" alt="npm installnfo" /></a>
+  <br>
   <a href="https://www.npmjs.com/package/discord.js-ext"><img src="https://img.shields.io/npm/v/discord.js-ext.svg?maxAge=3600" alt="NPM version" /></a>
   <a href="https://www.npmjs.com/package/discord.js-ext"><img src="https://img.shields.io/npm/dt/discord.js-ext.svg?maxAge=3600" alt="NPM downloads" /></a>
-<br>
-  <a href="https://nodei.co/npm/discord.js-ext/"><img src="https://nodei.co/npm/discord.js-ext.png?downloads=true&stars=true" alt="npm installnfo" /></a>
 </p>
 
 <h2>About</h2>
