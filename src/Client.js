@@ -62,7 +62,7 @@ class Client {
                     })
                     .catch(reject);
                 } else {
-                    throw new Error('[DISCORD.JS-EXT] You must include a valid type. (online | idle | dnd | offline)');
+                    return reject(new Error('[DISCORD.JS-EXT] You must include a valid type. (online | idle | dnd | offline)'));
                 }
             }
         });
@@ -79,12 +79,12 @@ class Client {
                 if (this.client.guilds.get(id)) {
                     try {
                         this.client.guilds.get(id).leave();
-                    } catch Exep {
-                        return reject(new Error('[DISCORD.JS-EXT] An Error has occured.'));
+                    } catch (err) {
+                        return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
                     }
                     resolve('Leaved!');
                 } else {
-                    reject(new Error('[DISCORD.JS-EXT] You cannot leave this guild because the bot isn\'t there.'));
+                    return reject(new Error('[DISCORD.JS-EXT] You cannot leave this guild because the bot isn\'t there.'));
                 }
             }
         });
