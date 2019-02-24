@@ -11,7 +11,7 @@ bot.on('ready', () => {
 
 bot.on('message', msg => {
     if (msg.content === 'info') {
-        bot.ext.utils.findMember(msg, msg.author.id).then((res) => {
+        bot.ext.utils.findMember(msg, msg.author.id).then((res) => { // You can find a member with username instead of ID
             let embed = new Discord.RichEmbed()
             .setTitle(res.user.tag)
             .setThumbnail(res.user.displayAvatarURL)
