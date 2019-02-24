@@ -17,7 +17,7 @@ bot.on('message', msg => {
             .setThumbnail(res.user.displayAvatarURL)
             .addField('Name', res.user.username)
             .addField('Tag', res.user.discriminator)
-            .addField('Bot', res.user.bot ? 'Oui' : 'non');
+            .addField('Bot', res.user.bot ? 'Yes' : 'No');
             bot.ext.message.create({
                 to: msg.channel.id,
                 attachEmbed: embed
