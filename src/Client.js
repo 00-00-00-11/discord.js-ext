@@ -71,7 +71,7 @@ class Client {
     /**
      * Leave a guild
      * @param {string} id The guild ID
-     * @returns {Promise<Guild>}
+     * @returns {Promise<string>}
      */
     async leaveGuild(id) {
         return new Promise(async(resolve, reject) => {
