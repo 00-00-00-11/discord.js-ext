@@ -20,7 +20,7 @@ class PlayerManager {
      * @param {string} id The voice channel ID
      * @returns {Promise<VoiceConnection>}
      */
-    join(id) {
+    async join(id) {
         return new Promise((resolve, reject) => {
             if (id && typeof id === 'string') {
                 if (this.client.channels.get(id)) {
@@ -31,10 +31,10 @@ class PlayerManager {
                         })
                         .catch(reject);
                     } else {
-                        reject(new Error('[DISCORD.JS-EXT] The bot cannot join this channel because it\'s not a voice channel.'));
+                        return reject(new Error('[DISCORD.JS-EXT] The bot cannot join this channel because it\'s not a voice channel.'));
                     }
                 } else {
-                    reject(new Error('[DISCORD.JS-EXT] The bot cannot join this channel because the bot don\'t see it.'));
+                    return reject(new Error('[DISCORD.JS-EXT] The bot cannot join this channel because the bot don\'t see it.'));
                 }
             }
         });
@@ -45,19 +45,27 @@ class PlayerManager {
      * @param {string} id The voice channel ID
      * @returns {Promise<string>}
      */
-    leave(id) {
-        return new Promise(async(resolve, reject) => {
+    async leave(id) {
+        return new Promise((resolve, reject) => {
             if (id && typeof id === 'string') {
                 let filterVc = this.client.voiceConnections.filter((v) => v.channel.id === id);
                 let vc = this.client.channels.get(id);
                 if (filterVc.size > 0) {
-                    await filterVc.first().disconnect();
-                    await resolve('Disconnected!');
+                    try {
+                        filterVc.first().disconnect();
+                    } catch (err) {
+                        return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+                    }
+                    resolve("Disconnected!");
                 } else if (vc && vc.type === 'voice') {
-                    await vc.leave();
-                    await resolve('Disconnected!');
+                    try {
+                        vc.leave();
+                    } catch (err) {
+                        return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+                    }
+                    resolve("Disconnected!");
                 } else {
-                    reject(new Error('[DISCORD.JS-EXT] The bot cannot leave this channel because the bot don\'t see it.'));
+                    return reject(new Error('[DISCORD.JS-EXT] The bot cannot leave this channel because the bot don\'t see it.'));
                 }
             }
         });
@@ -69,29 +77,39 @@ class PlayerManager {
      * @param {string} url The youtube url
      * @returns {Promise<VoiceConnection>}
      */
-    playYouTube(id, url) {
+    async playYouTube(id, url) {
         return new Promise(async(resolve, reject) => {
             if (id && typeof id === 'string') {
                 let filterVc = this.client.voiceConnections.filter((v) => v.channel.id === id);
                 let vc = this.client.channels.get(id);
                 if (filterVc.size > 0) {
                     if (url && typeof url === 'string') {
-                        await filterVc.first().playOpusStream(await ytdl(url), { volume: 0.1 });
-                        await resolve(filterVc.first());
+                        try {
+                            filterVc.first().playOpusStream(await ytdl(url), { volume: 0.1 });
+                        } catch (err) {
+                            return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+                        }
+                        resolve(filterVc.first());
                     } else {
-                        reject(new Error('[DISCORD.JS-EXT] You must include a valid URL. (string only)'));
+                        return reject(new Error('[DISCORD.JS-EXT] You must include a valid URL. (string only)'));
                     }
                 } else if (vc) {
                     vc.join()
                     .then(async(connection) => {
-                        await connection.playOpusStream(await ytdl(url), { volume: 0.1 });
-                        await resolve(connection);
+                        try {
+                            connection.playOpusStream(await ytdl(url), { volume: 0.1 });
+                        } catch (err) {
+                            return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+                        }
+                        resolve(connection);
                     })
                     .catch((err) => {
-                        if (err) reject(new Error(`[DISCORD.JS-EXT] The bot cannot join this channel, an error has occured:\n\n${err.message}`));
+                        if (err) {
+                            return reject(new Error(`[DISCORD.JS-EXT] The bot cannot join this channel, an error has occured:\n\n${err.message}`));
+                        }
                     });
                 } else {
-                    reject(new Error('[DISCORD.JS-EXT] The bot cannot join this channel because the bot don\'t see it.'));
+                    return reject(new Error('[DISCORD.JS-EXT] The bot cannot join this channel because the bot don\'t see it.'));
                 }
             }
         });
