@@ -67,7 +67,7 @@ class PlayerManager {
      * Plays a YouTube video/music
      * @param {string} id The voice channel ID
      * @param {string} url The youtube url
-     * @returns {Promise<StreamDispatcher>}
+     * @returns {Promise<VoiceConnection>}
      */
     playYouTube(id, url) {
         return new Promise(async(resolve, reject) => {
