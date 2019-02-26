@@ -42,6 +42,8 @@ npm install --save discord.js
 
 <h2>Example usage</h2>
 
+Pour voir la documentation: [discordjs-ext.tk](https://discordjs-ext.tk/)
+
 ```js
 const Discord = require('discord.js');
 const bot = new Discord.Client();
