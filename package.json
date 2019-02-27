@@ -23,7 +23,7 @@
   "homepage": "https://github.com/Sworder71/discord.js-ext#readme",
   "dependencies": {
     "ytdl-core-discord": "^1.0.3"
-  }
+  },
   "peerDependencies": {
     "discord.js": "^11.4.2",
   }
