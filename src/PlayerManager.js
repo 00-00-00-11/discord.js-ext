@@ -85,11 +85,10 @@ class PlayerManager {
                 if (filterVc.size > 0) {
                     if (url && typeof url === 'string') {
                         try {
-                            filterVc.first().playOpusStream(await ytdl(url), { volume: 0.1 });
+                            resolve(filterVc.first().playOpusStream(await ytdl(url), { volume: 0.1 }));
                         } catch (err) {
                             return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
                         }
-                        resolve(filterVc.first());
                     } else {
                         return reject(new Error('[DISCORD.JS-EXT] You must include a valid URL. (string only)'));
                     }
