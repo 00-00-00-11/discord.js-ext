@@ -114,6 +114,29 @@ class PlayerManager {
             }
         });
     }
+    
+    /**
+     * Changes the volume.
+     * @param {Snowflake} id The guild ID
+     * @param {Number} volume The number of volume
+     * returns {Promise<String>}
+     */
+    setVolume(id, volume) {
+        return new Promise((resolve, reject) => {
+            let guild = this.client.guilds.get(id);
+            if (!id) { return reject(new Error('[DISCORD.JS-EXT] The guildID isn\'t specified.')); }
+            if (!guild) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t on this guild.')); }
+            if (!guild.voiceConnection) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t connected on any channel in this guild.')); }
+            if (!volume || isNaN(volume)) { return reject(new Error('[DISCORD.JS-EXT] The volume must be a number.')); }
+            if (volume < 0 || volume > 100) { return reject(new Error('[DISCORD.JS-EXT] The volume must be a number between 0 and 100.')); }
+            try {
+                guild.voiceConnection.player.dispatcher.setVolume((volume / 100));
+            } catch (err) {
+                return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+            }
+            resolve('Volume set!');
+        });
+    }
 };
 
 module.exports = PlayerManager;
