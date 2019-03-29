@@ -137,6 +137,49 @@ class PlayerManager {
             resolve('Volume set!');
         });
     }
+    
+    /**
+     * Resumes the stream.
+     * @param {Snowflake} id The guild ID
+     * @returns {Promise<String>}
+     */
+    setToResume(id) {
+        return new Promise((resolve, reject) => {
+            let guild = this.client.guilds.get(id);
+            if (!id) { return reject(new Error('[DISCORD.JS-EXT] The guildID isn\'t specified.')); }
+            if (!guild) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t on this guild.')); }
+            if (!guild.voiceConnection) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t connected on any channel in this guild.')); }
+            if (!guild.voiceConnection.player.dispatcher) { return reject(new Error('[DISCORD.JS-EXT] No stream detected.')); }
+            if (!guild.voiceConnection.player.dispatcher.paused) { return reject(new Error('[DISCORD.JS-EXT] The stream isn\'t paused.')); }
+            try {
+                guild.voiceConnection.player.dispatcher.resume();
+            } catch (err) {
+                return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+            }
+            resolve('Stream resumed!');
+        });
+    }
+
+    /**
+     * Pauses the stream.
+     * @param {Snowflake} id The guild ID
+     * @returns {Promise<String>}
+     */
+    setToPause(id) {
+        return new Promise((resolve, reject) => {
+            let guild = this.client.guilds.get(id);
+            if (!id) { return reject(new Error('[DISCORD.JS-EXT] The guildID isn\'t specified.')); }
+            if (!guild) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t on this guild.')); }
+            if (!guild.voiceConnection) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t connected on any channel in this guild.')); }
+            if (!guild.voiceConnection.player.dispatcher || guild.voiceConnection.player.dispatcher.paused) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t playing.')); }
+            try {
+                guild.voiceConnection.player.dispatcher.pause();
+            } catch (err) {
+                return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
+            }
+            resolve('Stream paused!');
+        });
+    }
 };
 
 module.exports = PlayerManager;
