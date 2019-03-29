@@ -119,7 +119,7 @@ class PlayerManager {
      * Changes the volume.
      * @param {Snowflake} id The guild ID
      * @param {Number} volume The number of volume
-     * returns {Promise<String>}
+     * @returns {Promise<String>}
      */
     setVolume(id, volume) {
         return new Promise((resolve, reject) => {
