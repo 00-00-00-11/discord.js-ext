@@ -127,7 +127,7 @@ class PlayerManager {
             if (!id) { return reject(new Error('[DISCORD.JS-EXT] The guildID isn\'t specified.')); }
             if (!guild) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t on this guild.')); }
             if (!guild.voiceConnection) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t connected on any channel in this guild.')); }
-            if (!message.guild.voiceConnection.player.dispatcher || message.guild.voiceConnection.player.dispatcher.paused) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t playing.')); }
+            if (!guild.voiceConnection.player.dispatcher || guild.voiceConnection.player.dispatcher.paused) { return reject(new Error('[DISCORD.JS-EXT] The bot isn\'t playing.')); }
             if (!volume || isNaN(volume)) { return reject(new Error('[DISCORD.JS-EXT] The volume must be a number.')); }
             if (volume < 0 || volume > 100) { return reject(new Error('[DISCORD.JS-EXT] The volume must be a number between 0 and 100.')); }
             try {
