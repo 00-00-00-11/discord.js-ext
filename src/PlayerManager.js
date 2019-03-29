@@ -96,11 +96,10 @@ class PlayerManager {
                     vc.join()
                     .then(async(connection) => {
                         try {
-                            connection.playOpusStream(await ytdl(url), { volume: 0.1 });
+                            resolve(connection.playOpusStream(await ytdl(url), { volume: 0.1 }));
                         } catch (err) {
                             return reject(new Error(`[DISCORD.JS-EXT] An error has occured:\n\n${err.message}`));
                         }
-                        resolve(connection);
                     })
                     .catch((err) => {
                         if (err) {
